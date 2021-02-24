@@ -1,0 +1,15 @@
+com\example\project1\Project1Application.class
+com\example\project1\Repository\AppRepository.class
+com\example\project1\Repository\PersonRepository.class
+com\example\project1\PersonController.class
+com\example\project1\Security\SecurityConfiguration.class
+com\example\project1\EmailConfig.class
+com\example\project1\Service\ApplicationService.class
+com\example\project1\Security\MyUserDetailsService.class
+com\example\project1\Connection.class
+com\example\project1\Security\MyUserDetails.class
+com\example\project1\Person.class
+com\example\project1\Components\StartComponent.class
+com\example\project1\Repository\ConnectionRepository.class
+com\example\project1\Service\EmailService.class
+com\example\project1\App.class

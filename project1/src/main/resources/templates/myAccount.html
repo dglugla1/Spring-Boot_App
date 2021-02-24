@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/>/www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj aplikację</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!--Sidebar-->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+        </div>
+        <ul class="list-unstyled">
+            <li><a th:href="@{/user/myAccount}">
+                Moje konto
+            </a>
+            </li>
+            <li><a th:href="@{/user/appList}">
+                Lista aplikacji
+            </a></li>
+            <li><a th:href="@{/logout}">
+                Wyloguj
+            </a></li>
+        </ul>
+    </nav>
+
+    <!--Main-->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                </button>
+            </div>
+        </nav>
+        <h1>Moje dane</h1>
+        <div>
+            <table class="persData">
+                <tr>
+                    <th>Imię:</th>
+                    <td th:text="${person.getName()}"/>
+                </tr>
+                <tr>
+                    <th>Nazwisko:</th>
+                    <td th:text="${person.getSurname()}"/>
+                </tr>
+                <tr>
+                    <th>E-mail:</th>
+                    <td th:text="${person.getEmail()}"/>
+                </tr>
+                <tr>
+                    <th>Kraj:</th>
+                    <td th:text="${person.getCountry()}"/>
+                </tr>
+                <tr>
+                    <th>Nazwa użytkownika:</th>
+                    <td th:text="${person.getUsername()}"/>
+                </tr>
+            </table>
+            <a class="add-btn" th:href="@{/user/updateData}">Edytuj dane</a>
+            <a class="add-btn" th:href="@{/user/deletePerson/{id}(id=${person.id})}" method="get">Usuń konto</a>
+
+            <br><br><br><br>
+            <h1>Moje aplikacje</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Domena</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="app: ${applications}">
+                    <th scope="row" th:text="${app.getId()}"/>
+                    <td th:text="${app.getName()}"/>
+                    <td th:text="${app.getDomain()}"/>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script th:inline="javascript">
+    $(document).ready(function(){
+        $("#sidebarCollapse").on('click',function(){
+        $("#sidebar").toggleClass('active');
+        });
+    });
+</script>
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</body>
+</html>

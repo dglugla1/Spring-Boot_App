@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:800');
+
+body {
+    font-family: 'Alegreya Sans Regular', sans-serif;
+    background: white;
+}
+
+/*Sidebar*/
+
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: black;
+    color: white;
+    transition: all 0.3s;
+}
+
+#sidebar .active {
+    margin-left: -250px;
+}
+
+/*#sidebar .sidebar-header {
+    padding: 20px;
+    background: whitesmoke;
+}*/
+
+#sidebar ul.components {
+    padding: 50px 0;
+    border-bottom: 1px solid black;
+}
+
+/*#sidebar ul p{
+    color: white;
+    padding: 10px;
+}*/
+
+/*#sidebar ul li a{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 1.3em;
+    color: white;
+    display: block;
+    text-decoration: none;
+}*/
+
+#sidebar ul li a:hover{
+    background: white;
+    color: black;
+}
+
+#sidebar ul li a.active>a,
+a[aria-expanded="true"]{
+    color: black;
+    background: white;
+}
+
+a[data-toggle="collapse"]{
+    position: relative;
+}
+
+.dropdown-toggle::after{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+}
+ul ul a{
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: wheat;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    display: none;
+}
+
+.conainer-fluid {
+    background-color: #333742;
+}
+
+
+.add-btn-div {
+    float: right;
+}
+
+.add-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: 3px solid #007bff;
+    padding: 10px;
+    float: left;
+    border-radius: 5px;
+    font-family: 'Alegreya Sans Bold', sans-serif;
+    margin-right: 20px;
+}
+
+.add-btn:hover {
+    color: white;
+    background-color: #0069d9;
+    font-family: 'Alegreya Sans Bold', sans-serif;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+.validationError {
+    color: red;
+}
+
+.delete-usr {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.delete-usr:hover {
+    text-decoration: none;
+    color: #0069d9;
+}
+
+
+
+@media(max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse {
+        display: block;
+    }
+}
+
+
+/* define a fixed width for the entire menu */
+
+.sidebar-header {
+  width: 300px;
+}
+
+
+/* reset our lists to remove bullet points and padding */
+
+.list-unstyled,
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+
+/* make ALL links (main and submenu) have padding and background color */
+
+.list-unstyled a,
+.list-unstyled label {
+  display: block;
+  background-color: black;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+
+}
+
+.list-unstyled input {
+  display: none;
+}
+
+
+/* add hover behaviour */
+
+.list-unstyled a:hover {
+  background-color: white;
+  color: black;
+}
+
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+*/
+
+.list-unstyled :checked+.submenu {
+  display: block;
+  max-height: 200px;
+}
+
+
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+*/
+
+.submenu a {
+  background-color: black;
+  font-color: white;
+}
+
+
+/* hover behaviour for links inside .submenu */
+
+.submenu a:hover {
+  background-color: white;
+  font-color: black;
+}
+
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+*/
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+#myApps {
+    margin-top: 100px;
+}
+
+#add-app-btn {
+margin-top: 20px;
+}
+
+.upld-file{
+text-decoration: none;
+    color: #007bff;
+    background-color: white;
+}
+
+.upld-file-inp{
+border: 3px solid #007bff;
+text-decoration: none;
+ font-size: 14px;
+    color: #007bff;
+    background-color: white;
+    border-radius: 5px;
+    font-family: 'Alegreya Sans Bold', sans-serif;
+}
+
+.upld-file-sub{
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff;
+    background-color: white;
+    border: 3px solid #007bff;
+    padding: 3px;
+    border-radius: 5px;
+    font-family: 'Alegreya Sans Bold', sans-serif;
+    margin-top: 20px;
+}
+.upld-file-sub:hover{
+    color: white;
+    background-color: #007bff;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

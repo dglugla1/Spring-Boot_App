@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/>/www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myChart"></canvas>
+<script th:inline="javascript">
+        /*<![CDATA[*/
+       var htmldata = [[${data}]];
+       var ctx = document.getElementById('myChart').getContext('2d');
+       var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(htmldata),
+            datasets: [{
+                label: 'Ilosc użytkowników',
+                data: Object.keys(htmldata).map(function(key) {return htmldata[key];}),
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)'
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                            stepSize: 10
+            }
+        }]
+    }
+}
+        });
+        /*]]>*/
+</script>
+</body>
+</html>
